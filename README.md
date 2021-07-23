@@ -1,61 +1,33 @@
-project-template
-==============================
+# Analysis of Jupyterhub application pods in the Operate First Enviornment
 
-template for the team to use
+This repository contains a set of obfuscated sample datasets, as well as example analysis notebooks that can be used to quickly get started exploring and interacting with the Operate First Jupyterhub's operations data. We are also working on updating the notebooks to make it easy for users to pull additional data themselves.
 
-Project Organization
-------------
-
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── Pipfile            <- Pipfile stating package configuration as used by Pipenv.
-    ├── Pipfile.lock       <- Pipfile.lock stating a pinned down software stack with as used by Pipenv.
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file stating direct dependencies if a library
-    │                         is developed.
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    ├── .thoth.yaml        <- Thoth's configuration file
-    ├── .aicoe-ci.yaml     <- AICoE CI configuration file (https://github.com/AICoE/aicoe-ci)
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+The data provided (at the moment) contains **metrics**, **logs**, and **events** records from the Jupyterhub application on the [operate first cluster](https://www.operate-first.cloud/) on the Massachusetts Open Cloud (MOC). This is an Open Cloud environment, with reproducibility built-in, operated by a community with the goal of operating software in a production-grade environment.
+<br><br>
 
 
---------
+## DATASETS
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+### METRICS
+
+The metrics dataset consists of five seperate timeseries, each broken into their own csv file. Each metric contains around 1 days worth of data sampled every few minutes.
+
+* [Notebook](/notebooks/jupyterhub_data.ipynb)
+* [Data](/data/processed/jupyterhub/metrics)
+* [Source](http://thanos-query-frontend-opf-observatorium.apps.zero.massopen.cloud/)
+
+### LOGS
+
+The logs dataset includes roughly 1 day of infrastructure logs stored as a single json.
+
+* [Notebook](/notebooks/jupyterhub_data.ipynb)
+* [Data](/data/processed/jupyterhub/logs)
+* [Source](https://elasticsearch-openshift-logging.apps.zero.massopen.cloud/)
+
+### Events
+
+The events dataset was collected by a cluster admin and contains cluster wide events for Jupyterhub application for a day.
+
+* [Notebook](notebooks/jupyterhub_data.ipynb)
+* [Data](/data/processed/jupyterhub/events)
+* [Source](https://console-openshift-console.apps.zero.massopen.cloud/)
