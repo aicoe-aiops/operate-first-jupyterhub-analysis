@@ -3,6 +3,7 @@ presubmits:
     decorate: true
     skip_report: false
     always_run: true
+    clone_uri: "git@github.com:aicoe-aiops/operate-first-jupyterhub-analysis"
     context: aicoe-ci/prow/pre-commit
     spec:
       containers:
