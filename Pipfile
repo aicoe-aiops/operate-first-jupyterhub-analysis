@@ -11,6 +11,13 @@ Sphinx = "*"
 [packages]
 src = {editable = true, path = "./"}
 awscli = "*"
+prometheus-api-client = "*"
+matplotlib = "*"
+seaborn = "*"
+scikit-learn = "*"
+elasticsearch = "*"
+fastparquet = "*"
+umap_learn = "*"
 
 [requires]
 python_version = "3.8"
